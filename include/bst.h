@@ -3,7 +3,6 @@
 #define INCLUDE_BST_H_
 
 #include <algorithm>
-#include <string>
 #include <utility>
 #include <vector>
 
@@ -84,8 +83,8 @@ class BST {
     insertHelper(root, val);
   }
 
-  bool search(const T& val) const {
-    return searchHelper(root, val);
+  bool search(T value) const {
+    return searchHelper(root, value);
   }
 
   int depth() const {
