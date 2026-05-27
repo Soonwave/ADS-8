@@ -56,7 +56,7 @@ class BST {
 
   int depthHelper(const Node* node) const {
     if (node == nullptr) {
-      return -1; 
+      return 0;
     }
     int leftDepth = depthHelper(node->left);
     int rightDepth = depthHelper(node->right);
@@ -91,7 +91,7 @@ class BST {
     if (root == nullptr) {
       return 0;
     }
-    return depthHelper(root);
+    return depthHelper(root) - 1;
   }
 
   void extractAll(std::vector<std::pair<T, int>>* vec) const {
@@ -100,5 +100,4 @@ class BST {
     }
   }
 };
-
 #endif  // INCLUDE_BST_H_
