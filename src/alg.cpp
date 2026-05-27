@@ -1,6 +1,4 @@
 // Copyright 2021 NNTU-CS
-#include "bst.h"
-
 #include <cctype>
 
 #include <algorithm>
@@ -30,8 +28,9 @@ void makeTree(BST<std::string>& tree, const char* filename) {
 
     count++;
 
-    if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
-      current_word += static_cast<char>(std::tolower(ch));
+    if (std::isalpha(static_cast<unsigned char>(ch))) {
+      current_word += static_cast<char>(
+          std::tolower(static_cast<unsigned char>(ch)));
     } else {
       if (!current_word.empty()) {
         tree.insert(current_word);
