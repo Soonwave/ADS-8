@@ -3,13 +3,8 @@
 #define INCLUDE_BST_H_
 
 #include <algorithm>
+#include <utility>
 #include <vector>
-
-template <typename T>
-struct Item {
-  T value;
-  int count;
-};
 
 template <typename T>
 class BST {
@@ -68,7 +63,8 @@ class BST {
     return 1 + std::max(leftDepth, rightDepth);
   }
 
-  void extractHelper(const Node* node, std::vector<Item<T>>* vec) const {
+  void extractHelper(const Node* node,
+                     std::vector<std::pair<T, int>>* vec) const {
     if (node != nullptr) {
       extractHelper(node->left, vec);
       vec->push_back({node->value, node->count});
@@ -95,7 +91,7 @@ class BST {
     return depthHelper(root);
   }
 
-  void extractAll(std::vector<Item<T>>* vec) const {
+  void extractAll(std::vector<std::pair<T, int>>* vec) const {
     if (vec != nullptr) {
       extractHelper(root, vec);
     }
